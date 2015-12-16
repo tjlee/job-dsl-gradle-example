@@ -29,6 +29,13 @@ class FlexCiJobBuilder {
                 numToKeep 50
             }
 
+            parameters {
+                stringParam('VERSION', '10.2.0.0', '')
+                booleanParam('FLEX_DEBUG', false, '')
+                booleanParam('PROTOCOL_VALIDATION_SKIP', true, '')
+                booleanParam('FLEX_TEST_MODE', false, '')
+            }
+
             scm {
                 git {
                     remote {
