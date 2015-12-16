@@ -31,6 +31,7 @@ class FlexCiJobBuilder {
 
             parameters {
                 stringParam('VERSION', '10.2.0.0', '')
+                stringParam('BRANCH', 'master', '')
                 booleanParam('FLEX_DEBUG', false, '')
                 booleanParam('PROTOCOL_VALIDATION_SKIP', true, '')
                 booleanParam('FLEX_TEST_MODE', false, '')
@@ -41,6 +42,7 @@ class FlexCiJobBuilder {
                     remote {
                         github(this.gitHubOwnerAndProject)
                         credentials(this.gitHubCredentials)
+                        branch('\$BRANCH')
                     }
                     cloneTimeout 20
                     relativeTargetDir(this.gitHubCheckoutDir)
