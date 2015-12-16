@@ -9,8 +9,9 @@ job('seed') {
 ////        scm 'H/5 * * * *'
 //    }
     steps {
+        gradle 'clean'
         dsl {
-            external 'jobs/**/example7Jobs.groovy'
+            external 'jobs/example7Jobs.groovy'
             additionalClasspath 'src/main/groovy'
         }
     }
