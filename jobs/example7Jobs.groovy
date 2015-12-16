@@ -1,30 +1,14 @@
-import com.dslexample.GradleCiJobBuilder
-import com.dslexample.GrailsCiJobBuilder
+import com.dslexample.FlexCiJobBuilder
 
-String basePath = 'example7'
-List developers = ['dev1@example.com', 'dev2@example.com']
-
-folder(basePath) {
-    description 'This example shows how to create jobs using Job builders.'
-}
-
-new GrailsCiJobBuilder(
-    name: "$basePath/grails-project1",
-    description: 'An example using a job builder for a Grails project.',
-    ownerAndProject: 'myorg/project1',
-    emails: developers,
-).build(this)
-
-new GrailsCiJobBuilder(
-    name: "$basePath/grails-project2",
-    description: 'Another example using a job builder for a Grails project.',
-    ownerAndProject: 'myorg/project2',
-    emails: developers,
-).build(this)
-
-new GradleCiJobBuilder(
-    name: "$basePath/gradle-project1",
-    description: 'Example job description',
-    ownerAndProject: 'myorg/project3',
-    tasks: 'clean test'
+new FlexCiJobBuilder(
+        name: "new-test-flex-shit",
+        description: "test-new",
+        gitHubCredentials: "31df12ac-5d1f-495d-99fe-ad351505d316",
+        gitHubCheckoutDir: "setretail10",
+        gitHubOwnerAndProject: "crystalservice/setretail10",
+        antBuildFile: "setretail10/SetRetail10_Server_GUI/build.xml",
+        antSourceDir: "setretail10/SetRetail10_Server_GUI",
+        antFlexSdkDir: "/opt/flexsdk",
+        antAirSdkDir: "/opt/airsdk",
+        antBuildTestFile: ""
 ).build(this)

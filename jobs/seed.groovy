@@ -3,19 +3,18 @@
 
 job('seed') {
     scm {
-        github 'sheehan/job-dsl-gradle-example'
+        github 'tjlee/job-dsl-gradle-example'
     }
-    triggers {
-        scm 'H/5 * * * *'
-    }
+//    triggers {
+////        scm 'H/5 * * * *'
+//    }
     steps {
-        gradle 'clean test'
         dsl {
-            external 'jobs/**/*Jobs.groovy'
+            external 'jobs/**/example7Jobs.groovy'
             additionalClasspath 'src/main/groovy'
         }
     }
-    publishers {
-        archiveJunit 'build/test-results/**/*.xml'
-    }
+//    publishers {
+//        archiveJunit 'build/test-results/**/*.xml'
+//    }
 }
