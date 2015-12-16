@@ -44,12 +44,12 @@ class FlexCiJobBuilder {
                 shell('makedir -p \$WORKSPACE/\$JOB_NAME;cd \$WORKSPACE/' + this.gitHubCheckoutDir + ';')
                 ant {
                     targets([])
-                    buildFile("${WORKSPACE}/" + this.antBuildFile)
+                    buildFile("\$WORKSPACE/" + this.antBuildFile)
                     antInstallation('Default')
 
                     props('version': "\$VERSION",
                             'base.source.dir': "\$WORKSPACE/" + this.antSourceDir,
-                            'base.build.dir': "\$WORKSPACE/${JOB_NAME}",
+                            'base.build.dir': "\$WORKSPACE/\$JOB_NAME",
                             'flex.sdk.dir': this.antFlexSdkDir,
                             'test.mode': "\$FLEX_TEST_MODE",
                             'compile.help.enabled': true,
@@ -66,12 +66,12 @@ class FlexCiJobBuilder {
                     ant {
 
                         targets([])
-                        buildFile("${WORKSPACE}/" + this.antBuildTestFile)
+                        buildFile("\$WORKSPACE/" + this.antBuildTestFile)
                         antInstallation('Default')
                         props(
                                 'version': "\$VERSION",
                                 'base.source.dir': "\$WORKSPACE/" + this.antSourceDir,
-                                'base.build.dir': "\$WORKSPACE/${JOB_NAME}",
+                                'base.build.dir': "\$WORKSPACE/\$JOB_NAME",
                                 'flex.sdk.dir': this.antFlexSdkDir,
                                 'test.mode': "\$FLEX_TEST_MODE",
                                 'compile.help.enabled': true,
